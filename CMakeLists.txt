@@ -58,6 +58,14 @@ file(GLOB_RECURSE CORE_SOURCES
     "Src/Core/*.hpp"
 )
 add_library(CoreLib STATIC ${CORE_SOURCES})
+    target_include_directories(CoreLib PRIVATE
+        ${CORE_INCLUDES}
+    )
+    
+    target_link_libraries(CoreLib PRIVATE
+        glfw
+        Vulkan::Vulkan
+    )
 
 
 # ================== SAMPLE PART ==========
